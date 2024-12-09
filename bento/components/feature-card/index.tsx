@@ -1,34 +1,30 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { Card } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { ReactNode } from 'react';
 
 interface FeatureCardProps {
-  title: string;
-  image: string
   className?: string;
-  variant?: "default" | "purple" | "yellow" | "purple-light";
+  variant?:
+    | 'default'
+    | 'purple_bold'
+    | 'purple_ligth'
+    | 'yellow_light'
+    | 'yellow_bold';
+  children?: ReactNode;
 }
 
-export function FeatureCard({ title, className, variant = "default", image }: FeatureCardProps) {
+export function FeatureCard({
+  variant = 'default',
+  children,
+  className,
+}: FeatureCardProps) {
   const variants = {
-    default: "bg-white",
-    purple: "bg-[#8B5CF6] text-white",
-    yellow: "bg-[#FCD34D]",
-    "purple-light": "bg-[#EDE9FE]",
+    default: 'bg-white',
+    purple_bold: 'bg-royal-orchid text-white',
+    purple_ligth: 'bg-lavender-frost',
+    yellow_light: 'bg-golden-mist',
+    yellow_bold: 'bg-sunflower-glow',
   };
 
-  return (
-    <Card className={cn("", variants[variant], className)}>
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold leading-tight">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Image
-        alt=""
-        src={image}
-        width={100}
-        height={100}/>
-      </CardContent>
-    </Card>
-  );
+  return <Card className={cn(className, variants[variant])}>{children}</Card>;
 }

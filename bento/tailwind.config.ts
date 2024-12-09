@@ -13,6 +13,10 @@ export default {
   			'dm-sans': ["var(--font-dm-sans)", "sans-serif"]
   		},
   		colors: {
+			"lavender-frost" : 'hsl(254, 88%, 90%)',
+			'royal-orchid': 'hsl(256, 67%, 59%)',
+			'golden-mist': 'hsl(31, 66%, 93%)',
+			'sunflower-glow': 'hsl(39, 100%, 71%)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
